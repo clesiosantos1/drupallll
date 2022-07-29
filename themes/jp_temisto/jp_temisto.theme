@@ -1,0 +1,339 @@
+<?php
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Template\Attribute;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\file\Plugin\Core\Entity\FileInterface;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function jp_temisto_preprocess_html(&$variables) {
+    $node=\Drupal::routeMatch()->getParameter('node');
+    if($node){
+       if ($node == "slider") {
+        $variables['head_title']['title'] = "Page Not Found";
+      }   
+    }
+    foreach ($variables['user']->getRoles() as $role) {
+       $variables['attributes']['class'][] = 'role-' . $role;
+     }
+    
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function jp_temisto_preprocess_page(&$variables) {
+ 
+    // Book Now Section Variables
+    $variables['book_now_title'] = theme_get_setting('book_now_title');
+    $variables['book_now_link_title'] = theme_get_setting('book_now_link_title');
+    $variables['book_now_link_url'] = theme_get_setting('book_now_link_url');
+      
+    // Footer Section variables
+    $variables['twitter'] = theme_get_setting('twitter');
+    $variables['facebook'] = theme_get_setting('facebook');
+    $variables['instagram'] = theme_get_setting('instagram');
+    $variables['codepen'] = theme_get_setting('codepen');
+    $variables['github'] = theme_get_setting('github');
+    $variables['skype'] = theme_get_setting('skype');
+  
+    $main_color = theme_get_setting('main_color');
+    $variables['#attached']['drupalSettings']['main_color'] = $main_color;
+    
+    // Bannner Image Settings
+     $fid = theme_get_setting('banner_image');
+     if(is_array($fid)){
+      /*$query = \Drupal::database()->select('file_managed', 'm');
+        $query->fields('m', ['filename','uri']);
+        $query->condition('fid',$fid[0]);
+        $results = $query->execute()->fetchAll();
+      foreach($results as $data){
+        $uri=$data->uri;
+      }
+      $variables['banner_image']=file_create_url($uri);*/
+     }
+     else{
+      $path=base_path().$fid;
+      $variables['banner_image']=$path;
+     }
+  }
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function jp_temisto_preprocess_node(&$variables) {
+    $nid = $variables['node']->nid->value;
+    $num_comment = \Drupal::database()->query('SELECT comment_count FROM {comment_entity_statistics} WHERE entity_id = ' . $nid)->fetchAssoc();
+    if($num_comment){
+      $variables['comment_count'] = $num_comment['comment_count'];
+    }
+  }
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function jp_temisto_preprocess_menu(&$variables, $hook) {
+    if ($hook == 'menu__main') { // We're doing that for main menu.
+      // Get the current path.
+      $current_path = \Drupal::request()->getRequestUri();
+      $items = $variables['items'];
+      foreach ($items as $key => $item) {
+        // If path is current_path, set active to li.
+        if ($item['url']->toString() == $current_path) {
+          // Add active link.
+          $variables['items'][$key]['attributes']['class'] = 'active';
+        }
+      }
+    }
+  }
+  
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function jp_temisto_preprocess_paragraph(&$variables) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    if(($node = \Drupal::routeMatch()->getParameter('node'))){
+      if ($node->bundle() == "slider") {
+        $variables['page_title'] = "Page Not Found";
+      }
+    }
+    else{
+      $variables['page_title'] = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+  
+    }
+    $variables['#cache']['contexts'][] = 'url';
+  }
+
+/**
+ * Implements hook_preprocess_comment().
+ */
+function jp_temisto_preprocess_comment(&$variables) {
+    $d = $variables['comment']->getCreatedTime();
+    $datecontent = \Drupal::service('date.formatter')->formatInterval(REQUEST_TIME - $d);
+    $date = date("Y-m-d h:i:s A", $d);
+    $variables['created'] =t('<time class="timeago" datetime="@time">@date</time>', [
+     '@time'=>$date,
+     '@date'=>$datecontent]);
+  }
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function jp_temisto_preprocess_breadcrumb(&$variables) {
+    if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
+      if ($node->bundle() == "slider") {
+        $variables['breadcrumb'][] = array(
+          'text' => "Page Not Found",
+        );
+      } else {
+        $variables['breadcrumb'][] = array(
+          'text' => $node->getTitle(),
+        );       
+      }
+    } 
+    $variables['#cache']['contexts'][] = 'url';
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function jp_temisto_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
+    // Banner Section Start
+     $form['drushup_settings']['banner'] = array(
+       '#type' => 'details',
+       '#title' => 'Banner Image Settings For User and Not Found Pages',
+       '#collapsible' => TRUE,
+       '#collapsed' => FALSE,
+     );
+   
+      $fid = theme_get_setting('banner_image');
+      if(is_array($fid)){
+         $form['drushup_settings']['banner']['banner_image'] = array(
+           '#type'            => 'managed_file',
+           '#title'           => t('Banner image'),
+           '#default_value'   => theme_get_setting('banner_image'),
+           '#description'     => t("The Banner images for users."),
+           '#upload_location' => 'public://'
+         );
+       }
+       else{
+          $form['drushup_settings']['banner']['banner_image'] = array(
+           '#type'            => 'managed_file',
+           '#title'           => t('Banner image'),
+           '#description'     => t("The Banner images for users."),
+           '#upload_location' => 'public://'
+         );
+       }
+    
+     // theme Section Start
+     $form['drushup_settings']['theme'] = array(
+       '#type' => 'details',
+       '#title' => t('Theme Color Settings'),
+       '#collapsible' => TRUE,
+       '#collapsed' => FALSE,
+     );
+   
+     $form ['drushup_settings']['theme']['main_color'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Theme Color'),
+       '#attributes' => ['id' => 'color-pick'],
+       '#default_value' => theme_get_setting('main_color'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+       
+   
+     // Book Now Section Start
+     $form['drushup_settings']['book_now'] = array(
+       '#type' => 'details',
+       '#title' => t('Book Now Theme Settings'),
+       '#collapsible' => TRUE,
+       '#collapsed' => FALSE,
+     );
+   
+     $form ['drushup_settings']['book_now']['book_now_title'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Book Now Title'),
+       '#default_value' => theme_get_setting('book_now_title'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     $form ['drushup_settings']['book_now']['book_now_link_title'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Book Now Link Title'),
+       '#default_value' => theme_get_setting('book_now_link_title'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     $form ['drushup_settings']['book_now']['book_now_link_url'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Book Now Link URL'),
+       '#default_value' => theme_get_setting('book_now_link_url'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     // footer Section Start
+     $form['drushup_settings']['footer'] = array(
+       '#type' => 'details',
+       '#title' => t('Footer Theme Settings'),
+       '#collapsible' => TRUE,
+       '#collapsed' => FALSE,
+     );
+   
+    $form ['drushup_settings']['footer']['facebook'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Facebook'),
+       '#default_value' => theme_get_setting('facebook'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     $form ['drushup_settings']['footer']['twitter'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Twitter'),
+       '#default_value' => theme_get_setting('twitter'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     ); 
+   
+     $form ['drushup_settings']['footer']['instagram'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Instagram'),
+       '#default_value' => theme_get_setting('instagram'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     $form ['drushup_settings']['footer']['codepen'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Codepen'),
+       '#default_value' => theme_get_setting('codepen'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     $form ['drushup_settings']['footer']['github'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Github'),
+       '#default_value' => theme_get_setting('github'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+   
+     $form ['drushup_settings']['footer']['skype'] = array(
+       '#type'          => 'textfield',
+       '#title'         => t('Skype'),
+       '#default_value' => theme_get_setting('skype'),
+       '#description'   => t("Place this text in the widget spot on your site."),
+     );
+     $form['#attached']['library'][] = 'jp_temisto/color-picker';
+   }
+
+/**
+ * Implements hook_form_alter().
+ */
+function jp_temisto_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+    if ($form_id=='comment_comment_form') {
+      
+  
+      //add class subject
+      $form['subject']['widget']['0']['value']['#attributes']['class'][]='form-control';
+  
+      //add placeholder subject
+      $form['subject']['widget']['0']['value']['#attributes']['placeholder'] = t('Subject');
+  
+      //add class body
+      $form['field_comment']['widget']['0']['value']['#attributes']['class'][]='form-control';
+  
+      //add placeholder body
+      $form['field_comment']['widget']['0']['value']['#attributes']['placeholder'] = t('Write message here');
+    
+      $form['actions']['submit']['#attributes']['class'][]='btn btn-default theme-btn btn-hover';
+      $form['actions']['preview']['#attributes']['class'][]='btn btn-default theme-btn btn-hover';
+  
+    }
+    elseif ($form_id=='comment_comment_delete_form'){
+      $form['actions']['submit']['#attributes']['class'][]='btn btn-default theme-btn btn-hover';
+  
+    }
+  
+  }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function jp_temisto_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+    // Get Request Object.
+    $request = \Drupal::request();
+    $node=\Drupal::routeMatch()->getParameter('node');
+    if($node)
+      if ($node->bundle()== "slider") {
+          $suggestions[] = 'page__404';
+      }
+      
+    // If there is HTTP Exception..
+    if ($exception = $request->attributes->get('exception')) {
+      // Get the status code.
+      $status_code = $exception->getStatusCode();
+      if (in_array($status_code, array(401, 403, 404))) {
+        $suggestions[] = 'page__' . $status_code;
+      }
+    }
+    
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      $suggestions[] = 'page__' . $node->bundle();
+    }
+  }
+  
+
+/**
+ * Implements hook_theme().
+ */
+function jp_temisto_theme(&$existing, $type, $theme, $path) {
+    $hooks = array();
+    $hooks['user_login_form'] = array(
+        'render element' => 'form',
+        'template' => 'user-login-form',
+    );
+    return $hooks;
+}
+
+?>

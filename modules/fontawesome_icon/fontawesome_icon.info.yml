@@ -1,0 +1,13 @@
+name: 'Font Awesome Icon Field'
+type: module
+description: 'Provides functionality to add a Font Awesome Icon field.'
+package: 'Fields'
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - field:field
+
+# Information added by Drupal.org packaging script on 2021-07-02
+version: '1.0.x-dev'
+project: 'fontawesome_icon'
+datestamp: 1625192129

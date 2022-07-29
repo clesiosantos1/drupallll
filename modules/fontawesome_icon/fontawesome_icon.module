@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Module for integration of icon with Font Awesome.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function fontawesome_icon_theme() {
+  return [
+    'fontawesome_icon_formatter' => [
+      'variables' => ['icon' => NULL],
+      'template' => 'fontawesome-icon-formatter',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function fontawesome_icon_page_attachments(array &$page) {
+  // Attach library fontawesome-iconpicker.
+  $page['#attached']['library'][] = 'fontawesome_icon/fontawesome-icon';
+}

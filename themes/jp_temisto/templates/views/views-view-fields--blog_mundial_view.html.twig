@@ -1,0 +1,79 @@
+<div class="card col-sm-12 col-lg-4 card-news middle-column" style="padding: 20px; border: none;">
+
+    <div class="card-body bg-white" style="padding: 0px; padding-bottom: 40px;">
+        <div class="post-img">
+            {{fields.field_image.content}}
+        </div>
+        <div class="blog-box-content text-left bg-white px-0">
+            
+            <h3 class="post-title">
+                {{fields.title.content}}
+            </h3>
+            <span class="post-bar text-left">
+            {% trans %}
+                <i class="fa fa-calendar"></i> {{ fields.created.content|date('d F Y') }}
+            {% endtrans %}
+            </span>
+            <span class="post-description">
+                <a href="http://"></a>
+                {{fields.body.content}}...
+            </span>
+        </div>
+    </div>
+
+    <div class="card-footer text-left">
+        <div class="card-footer-content">
+            <div id="btnNews" class="btnNews">
+                {{fields.title.content}}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+.blog-box-content p {
+    text-align: left;
+}
+
+.post-title {
+    margin: 5px 0 0px 0;
+}
+span.font-weight-bold {
+    line-height: 3;
+}
+
+.card-news .card-footer .card-footer-content #btnNews a, #vertodos a {
+    background-color: #009acb !important;
+    padding: 10px 18px;
+    font-size: 12px;
+    display: none;
+}
+
+.card-news .post-description {
+    color: #424242;
+    padding-bottom: 0;
+}
+
+.card-news .post-bar{
+    color: #999;
+}
+
+.blog-area {
+    padding: 40 !important;;
+}
+p {
+    margin: 0;
+    color: #555555;
+    font-size: 15px;
+}
+</style>
+
+<script>
+var botao = document.querySelectorAll('#btnNews a');
+setTimeout(() => {
+        botao.forEach(btn => {
+            btn.innerText = "Ler mais";
+        });
+    }, 10000);
+</script>

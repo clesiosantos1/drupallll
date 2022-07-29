@@ -1,0 +1,648 @@
+<!-- Start Blog Detail -->
+<span>{{content.field_banner_seguros}}</span>
+<!-- Start About Banner Section the guy -->
+<!-- <section class="section page-title bg-fixed bg-cover small-banner small-banner-mobile banner-area"
+    style="background-image: url({{content.field_background_image.0}});">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div>
+                <div class="service-banner">
+                    <h4 class="text-white banner-title">{{content.field_title.0}}</h4>
+                    {# <ul class="breadcrumb">
+                        <li><a href=".">Início</a></li>
+                        <li>{{content.field_title.0}}</li>
+                    </ul> #}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+End About Banner Section  -->
+
+<section class="blog-area blog-sidebar-area blog-single-area" style="margin-top:40px; padding: 0;">
+    <div class="container tseguros">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 py-5">
+                <div class="blog-single-img">
+                    <img src="{{content.field_seguros_img_cover.0}}" alt="">
+                </div>
+                <!-- <div class="time-date px-0 bg-transparent">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> {{node.created.value|date("d, F Y")}}
+                </div> -->
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-5 py-5">
+                <div class="blog-content">
+                    <h2>{{ node.title.value }}</h2>
+                    <div class="blog-content-desc text-align-justify" style="color: #3d4049;">
+                        <!-- <span class="d-flex">Postado por <span class="categoria-blog pl-1">{{ content.field_autor }}</span> -->
+                        {{ content.body }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ content.field_related_news }}
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid tipos-seguros">
+        <div class="container t-seguros">
+            <div class="text-center">
+                <h1 class="field_tipos_seguros ">{{content.field_tipos_seguros}}</h1>
+            </div>
+
+            <div class="row tiposSeguros">
+                {{content.field_card_seguros}}
+            </div>
+        </div>
+    </div>
+
+    <div class="padding-left-0 container-fluid">
+        <div class="bd-blue ">
+            <div class="container py-4">
+                <span class="mb-3 mt-4">{{content.field_segundo_titulo}}</span>
+                <span class="mt-5">{{content.field_terceiro_titulo}}</span>
+                <div class="row form-contacto">
+                    <div class="col-md-6 informacao">
+                        <h3>{{content.field_cobertura_titu}}</h3>
+                        <span>{{content.field_cobertura_subtulo}}</span>
+                        <div class="row">
+                            {{content. field_tipos_}}
+                            {{content.field_cobertur}}
+                        </div>
+                    </div>
+                    <div class="col-md-6 form">
+                        {{content.field_form_orcamento}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="padding-left-0 container-fluid">
+        <div class="bg-ligth">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            {{content.field_cobertur}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        {{content.field_per}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <script>
+        var autor = document.getElementById("autor").innerText.split('.');
+        var nome = autor[0];
+        var sobrenome = autor[1];
+        nome = nome.charAt(0).toUpperCase() + nome.slice(1);
+        sobrenome = sobrenome.charAt(0).toUpperCase() + sobrenome.slice(1);
+        autor = nome + ' ' + sobrenome;
+        document.getElementById("autor").innerText = autor;
+
+    </script>
+</section>
+
+<style>
+  input#edit-insira-o-codigo-da-imagem {
+    /*width: 490px;*/
+    width: 100%;
+  }
+    .bg-ligth-cor {
+        background-color: #1d1212;
+    }
+
+    .padding-left-0 {
+        padding-left: 0;
+    }
+    .webform-flex--container {
+      margin: auto;
+  }
+
+    .bd-blue {
+        height: 450px;
+        margin-bottom: 400px;
+        background: rgb(0 155 204 / 70%);
+    }
+
+    .padding-left-0.container-fluid {
+        padding-right: 0;
+    }
+
+    .blog-single-area .time-date {
+        border-radius: 0;
+        background-color: white !important;
+        margin-top: 15px;
+        color: #3d4049;
+
+    }
+
+    .blog-content h2 {
+        margin-top: -23px;
+        color: #00455b;
+        font-weight: 500;
+        font-size: 34px;
+        letter-spacing: -1px;
+    }
+
+    .blog-content-desc p {
+        color: #3d4049;
+        font-size: 14px;
+    }
+
+    .blog-single-img img {
+        width: 522px;
+        height: 618px;
+        position: relative;
+        top: -130px;
+    }
+    .banner-area {
+        position: relative;
+        min-height: 250px;
+        color: #fff;
+        background-position: 50% 50%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .banner-title {
+        color: #fff;
+        font-size: 32px;
+        text-transform: uppercase;
+        line-height: normal;
+        margin: 0;
+        letter-spacing: 2px;
+        width: auto;
+    }
+
+    .breadcrumb>li {
+        display: inline-block;
+    }
+
+    .breadcrumb>li a:link,
+    .breadcrumb>li a:visited {
+        text-decoration: none;
+        color: #1d98c4;
+    }
+
+    .breadcrumb>li+li:before {
+        color: #fff;
+        content: "/";
+        padding: 5px;
+    }
+
+    .paragraph.paragraph--type--card-seguro.paragraph--view-mode--default {
+        margin-right: 40px;
+        margin-bottom: 30px;
+        padding: 14px;
+        width: 192px;
+        height: 130px;
+    }
+
+    .field.field--name-field-icone-seguro.field--type-font-field-icon.field--label-hidden.field__item {
+        font-size: 44px;
+        color: #009acb;
+        text-align: center;
+    }
+
+    .row.seg-cards {
+        border: 1px solid #8f878752;
+        margin-bottom: 60px;
+    }
+
+    .paragraph.paragraph--type--cobertura-seguro.paragraph--view-mode--default {
+        margin-right: 36px;
+    }
+
+    .paragraph.paragraph--type--cobertura-seguro.paragraph--view-mode--default:before {
+        content: "\f00c";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        border: 1px solid;
+        padding: 5px;
+        color: #fff;
+        background: #009acb;
+        position: relative;
+        top: 28px;
+        left: 15px;
+    }
+
+    .clearfix.text-formatted.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item {
+        font-size: 16px;
+    }
+
+    .field.field--name-field-tipo-cobetura.field--type-string.field--label-hidden.field__item {
+        margin-left: 50px;
+        /*width: 450px;*/
+    }
+
+    .field.field--name-field-segundo-titulo.field--type-string.field--label-hidden.field__item {
+        color: #fff;
+        font-weight: 500;
+        text-align: left !important;
+        padding-top: 40px;
+        font-size: 20px;
+        text-align-last: center;
+    }
+
+    .field.field--name-field-terceiro-titulo.field--type-string.field--label-hidden.field__item {
+        color: #fff;
+        font-weight: 600;
+        font-size: 32px;
+        text-align: center;
+        /*
+        text-align-last: center;*/
+    }
+
+    .row.form-contacto {
+        margin-top: 50px;
+        box-shadow: 0 8px 15px -11px black;
+    }
+
+    div#edit-actions {
+        border: none;
+    }
+
+    input#edit-actions-submit {
+        width: 492px;
+        margin-left: 4px;
+    }
+
+    .col-md-6.informacao {
+        background-color: #e1f3f9;
+        padding: 40px;
+    }
+
+    .col-md-6.form {
+        background: #fff;
+        /*padding: 40px;*/
+        padding: 20px 40px 10px 40px;
+
+    }
+
+    /* Estilização tipos de seguros  */
+    .field.field--name-field-tipos-seguros.field--type-string.field--label-hidden.field__item {
+        font-size: 40px;
+        font-weight: 500;
+        margin-bottom: 40px;
+        color: #00455b;
+    }
+
+    .field.field--name-field-texto-card.field--type-string-long.field--label-hidden.field__item {
+        text-align: center;
+    }
+
+    .field.field--name-field-icone-ima.field--type-image.field--label-hidden.field__item img {
+        width: 80px;
+        height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container-fluid.tipos-seguros {
+        background: #f5f7fa;
+    }
+
+    .container.t-seguros {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .card-seguros.col-md-4 {
+        background: #fff;
+        margin-right: 0px;
+        height: 400px;
+        padding: 30px;
+        margin: 15px;
+        border-radius: 16px;
+        box-shadow: 0 8px 15px -11px black;
+        max-width: 30.333333%;
+    }
+
+    .field.field--name-field-desricao-icone.field--type-string.field--label-hidden.field__item {
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
+        color: #00455b;
+        margin-top: 70px;
+    }
+
+    h1.field_tipos_seguros {
+        padding: 0 181px;
+    }
+
+    /* Estilização de formulários */
+    .col-md-6.js-form-item.form-item.js-form-type-tel.form-type-tel.js-form-item-telefone-.form-item-telefone- {
+        margin-top: -26px;
+    }
+
+    .col-md-6.informacao h3 {
+        vertical-align: inherit;
+        font-size: 30px;
+        font-weight: 500;
+        color: #000000d1;
+    }
+
+    .col-md-6.js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-assunto-.form-item-assunto- {
+        margin-top: -26px;
+    }
+
+    .col-md-12.js-form-item.form-item.js-form-type-textarea.form-type-textarea.js-form-item-detalhes-adicionais-opcional-.form-item-detalhes-adicionais-opcional- {
+        margin-top: -26px;
+    }
+
+    /*perguntas frequentes  */
+    .bg-ligth {
+        background: rgb(245 247 250);
+    }
+
+     {
+        width: 633px;
+    }
+
+    .field.field--name-field-icone-plus.field--type-font-field-icon.field--label-hidden.field__item {
+        right: -54px;
+    }
+
+    .field.field--name-field-icone-plus.field--type-font-field-icon.field--label-hidden.field__item:active {
+        border: none !important;
+    }
+
+    .field.field--name-field-icone-plus.field--type-font-field-icon.field--label-hidden.field__item:hover {
+        border: none;
+    }
+
+    h1.field_pergunta_inicial {
+        font-size: 20px;
+        margin-left: 16px;
+        color: #000000a3;
+    }
+
+    .field.field--name-field-icone-plus.field--type-font-field-icon.field--label-hidden.field__item i {
+        font-size: 22px;
+        color: #000;
+        border: none;
+    }
+
+    .field.field--name-field-tipos-.field--type-string.field--label-hidden.field__item {
+        font-size: 28px;
+        font-weight: 500;
+        margin-left: 19px;
+    }
+
+    @media screen and (max-width: 991px) and (min-width: 300px) {
+        .banner-title {
+            color: #fff;
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .field.field--name-field-tipos-seguros.field--type-string.field--label-hidden.field__item {
+            font-size: 24px;
+        }
+
+        h1.field_tipos_seguros {
+            padding: 0px;
+        }
+
+        .field.field--name-field-desricao-icone.field--type-string.field--label-hidden.field__item {
+            font-size: 16px;
+        }
+
+        .field.field--name-field-tipos-.field--type-string.field--label-hidden.field__item {
+            font-size: 25px;
+        }
+
+        .field.field--name-field-tipo-cobetura.field--type-string.field--label-hidden.field__item {
+            /*width: 250px;*/
+        }
+
+        .field.field--name-field-terceiro-titulo.field--type-string.field--label-hidden.field__item {
+            font-size: 18px;
+        }
+
+        .bd-blue {
+            margin-bottom: 1000px;
+        }
+
+        .field.field--name-field-icone-ima.field--type-image.field--label-hidden.field__item img {
+            margin-top: 30px;
+        }
+
+        .container.t-seguros {
+            padding-top: 42px;
+            padding-bottom: 50px;
+        }
+
+        .col-md-6.js-form-item.form-item.js-form-type-email.form-type-email.js-form-item-email-.form-item-email- {
+            margin-top: -27px;
+        }
+
+        input#edit-assunto- {
+            width: 296px;
+        }
+
+        input#edit-nome- {
+            width: 296px;
+        }
+
+        input#edit-actions-submit {
+            width: 294px;
+        }
+
+        .blog-single-img img {
+            width: 376px;
+            margin-left: -15px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        h1.field_tipos_seguros {
+            padding: 0px 20px;
+        }
+
+        .field.field--name-field-tipos-seguros.field--type-string.field--label-hidden.field__item {
+            font-size: 30px;
+
+        }
+
+        .field.field--name-field-tipos-.field--type-string.field--label-hidden.field__item {
+            font-size: 24px;
+        }
+
+        .field.field--name-field-tipo-cobetura.field--type-string.field--label-hidden.field__item {
+            /*width: 250px;*/
+        }
+
+        input#edit-actions-submit {
+            width: 283px;
+        }
+
+        .container.t-seguros {
+            max-width: 100%;
+        }
+
+        .field.field--name-field-terceiro-titulo.field--type-string.field--label-hidden.field__item {
+            font-weight: 500;
+        }
+
+        .blog-single-img img {
+            width: 340px;
+            height: 695px;
+        }
+
+        .row.tiposSeguros {
+            margin-left: 29px;
+            margin-right: -155px;
+        }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1366px) {
+        .row.tiposSeguros {
+            margin-right: 0px;
+        }
+
+        input#edit-actions-submit {
+            width: 402px;
+        }
+
+        .field.field--name-field-tipos-seguros.field--type-string.field--label-hidden.field__item {
+            padding: 0 63px;
+        }
+
+        .blog-single-img img {
+            width: 439px;
+            height: 618px;
+        }
+    }
+
+    @media (min-width: 375px) and (max-width: 735.99px) {
+        .blog-single-img img {
+            width: 669px;
+            margin-left: -80px;
+        }
+
+        .field.field--name-field-terceiro-titulo.field--type-string.field--label-hidden.field__item {
+            font-size: 26px;
+        }
+
+        input#edit-nome- {
+          /*460*/
+            width: 100%;
+        }
+
+        input#edit-assunto- {
+          width: 100%;
+          }
+
+
+        input#edit-insira-o-codigo-da-imagem {
+          /*width: 334.4px !important;*/
+          height: 45px !important;
+
+        }
+        canvas#edit-captcha-contacto {
+            /*margin-top: -20px;*/
+        }
+
+        input#edit-actions-submit {
+            width: 100%;
+        }
+
+        .field.field--name-field-tipos-seguros.field--type-string.field--label-hidden.field__item {
+            font-size: 26px;
+        }
+
+       /* .col-md-12.js-form-item.form-item.js-form-type-textarea.form-type-textarea.js-form-item-detalhes-adicionais-opcional-.form-item-detalhes-adicionais-opcional- {
+          margin-top: -55px;
+        }*/
+        .ml-3, .mx-3 {
+          /* margin-left: 1rem!important; */
+          margin: -28px 0px 15px 17px;
+        }
+
+    /*  .footer-section {
+          margin-top: 120px;
+      }*/
+
+      .col-md-6,.form {
+        /*background: #fff;*/
+        /*padding: 10px 40px 0px 40px;*/
+      }
+
+      .col-lg-4, .col-md-6, .m-15.px-tb, .col-sm-12 {
+        margin-top: 0px;
+      }
+     /* .pt-4, .py-4 {
+      padding-top: 1px !important;
+      }*/
+
+    /*.container {
+      margin-top: 70px;
+    }*/
+    footer.footer {
+    padding-top: 30px !important;
+}
+
+    }
+    @media (min-width: 736px) and (max-width: 767.99px) {
+
+      input#edit-insira-o-codigo-da-imagem {
+        /*width: 460px;*/
+        height: 45px !important;
+
+      }
+      input#edit-nome- {
+        /*460*/
+          width: 100%;
+          height: 45px !important;
+      }
+
+      input#edit-assunto- {
+        width: 100%;
+        height: 45px !important;
+      }
+
+      canvas#edit-captcha-contacto {
+          /*margin-top: -20px;
+          relative */
+      }
+
+      input#edit-actions-submit {
+          width: 100% !important;
+      }
+
+      /*.footer-section {
+        margin-top: 120px;
+      }*/
+
+  }
+
+
+  /*
+    My approach
+  */
+    .webform-flexbox{
+        margin: 0;
+    }
+
+    canvas#edit-captcha-contacto{
+        position: absolute;
+        top: 0;
+    }
+
+    .paragraph.paragraph--type--cobertura-seguro.paragraph--view-mode--default{
+        width: 100%;
+    }
+</style>

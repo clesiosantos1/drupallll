@@ -1,0 +1,14 @@
+fontawesome-icon:
+  version: 1.x
+  css:
+    layout:
+      css/font-awesome.min.css: {}
+      css/style.css: {}
+  js:
+    js/jquery.scroll-to.min.js: {}
+    js/fontawesome-icon.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

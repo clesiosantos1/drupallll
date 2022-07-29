@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+{% if breadcrumb %}
+  <ul>
+    {% for item in breadcrumb %}
+        {% if item.url %}
+          <li>
+            <a href="{{ item.url }}">{{ item.text }}</a>
+          </li>
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        {% else %}
+          <li>
+            {{ item.text }}
+          </li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<style>
+#block-jp-temisto-breadcrumbs {
+    width: 100% !important;
+    display: inline-block;
+    position: absolute;
+    top: 66px;
+    text-align: center;
+}
+#block-jp-temisto-breadcrumbs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    text-align: center;
+    width: auto;
+    margin: auto;
+    display: inline-flex;
+}
+</style>
+           

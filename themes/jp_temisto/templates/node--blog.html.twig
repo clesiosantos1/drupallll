@@ -1,0 +1,189 @@
+<!-- Start Blog Detail -->
+{{content.field_banner}}
+<section class="blog-area blog-sidebar-area blog-single-area" style="margin-top:40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mb-5">
+                <div class="blog-single-img">
+                    {{content.field_image.0}}
+                </div>
+                <div class="time-date px-0 bg-transparent">
+                    {% set trans_month_hash = { 
+                        "January": "Janeiro", 
+                        "February": "Fevereiro", 
+                        "March": "Março", 
+                        "April": "Abril", 
+                        "May": "Maio", 
+                        "June": "Junho", 
+                        "July": "Julho", 
+                        "August": "Agosto", 
+                        "September": "Setembro", 
+                        "October": "Outubro", 
+                        "November": "Novembro", 
+                        "December ": "Dezembro"
+                    } 
+                   %}
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> {{ node.created.value|date("d,") }} {{ trans_month_hash[node.created.value|date("F")] }} {{ node.created.value|date("Y") }}
+                </div>
+                <div class="blog-content">
+                    <h2>{{ node.title.value }}</h2>
+                    <div class="blog-content-desc text-align-justify" style="color: #3d4049;">
+                        <span class="d-flex">Postado por <span class="categoria-blog pl-1">{{ content.field_autor
+                                }}</span></span>
+                    
+                        {{ content.body }}
+                        <div class="form-inline mt-4 mr-5">
+                            <p class="share-partilhe">Partilhe</p>
+                         
+                        </div>
+                        {{content.field_social_share}}
+                        <div class="links-blog">
+                            <a class="mail" href="mailto:contato@ccba.ao"></a>
+                            <a class="print" href="javascript:if(window.print)window.print()"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                {{ content.field_related_news }}
+
+                <a href="https://www.instagram.com/amundialseguros"><img class="img-siga-nos" src="themes/jp_temisto/assets/follow_mundial.png"> </a>
+            </div>
+             
+        </div>
+    </div>
+    <script>
+        var autor = document.getElementById("autor").innerText.split('.');
+        var nome = autor[0];
+        var sobrenome = autor[1];
+        nome = nome.charAt(0).toUpperCase() + nome.slice(1);
+        sobrenome = sobrenome.charAt(0).toUpperCase() + sobrenome.slice(1);
+        autor = nome + ' ' + sobrenome;
+        document.getElementById("autor").innerText = autor;
+
+    </script>
+</section>
+
+<style>
+    .blog-single-area .time-date {
+        border-radius: 0;
+        background-color: white !important;
+        margin-top: 15px;
+        color: #3d4049;
+    }
+    .se-block .block-content .se-container .se-links-container {
+        height: 60px;
+        top: -57px;
+        left: 61px;
+        position: relative;
+    }
+    .se-block .block-content .se-container .se-links-container .se-links .se-link img {
+        max-height: 60px;
+        width: 40px;
+        border-radius: 100%;
+        margin: 5px;
+    }
+    .block.block-views.block-views-blockblogs-categorias-relacionadas--block-1 h2 {
+        display: none;
+    }
+    .links-blog a {
+        text-decoration: none;
+    }
+    .links-blog {
+        position: relative;
+        left: 121px;
+    }
+    .blog-content h2 {
+        margin-top: -23px;
+        color: #3d4049;
+        font-weight: bold;
+        font-size: 34px;
+        letter-spacing: -1px;
+    }
+ 
+    p.share-partilhe {
+        font-size: 16px !important;
+        font-weight: 500;
+    }
+    .blog-content-desc p {
+        color: #3d4049;
+        font-size: 14px;
+    }
+    .links-blog a.mail:before {
+        content: "\f0e0";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        font-size: 21px;
+        height: 40px;
+        left: 182px;
+        top: -138px;
+        position: relative;
+        color: #fff;
+        background: #706e6e;
+        line-height: 1.6;
+        padding: 9px 9px !important;
+        border-radius: 46%;
+    }
+    .links-blog	a.print:after {
+        
+        content: "\f02f";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        font-size: 23px;
+        height: 37px;
+        left: 191px;
+        top: -138px;
+        position: relative;
+        color: #fff;
+        background: #706e6e;
+        line-height: 1.6;
+        padding: 9px 10px !important;
+        border-radius: 46%;
+        }
+    .page-title:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "";
+        opacity: 0.5;
+        z-index: -1;
+        background: #000;
+    }
+    img.img-siga-nos {
+        max-width: 294px;
+        margin-top: 40px;
+        margin-left: 6px;
+    }
+
+    @media (max-width:767.99px){
+       .links-blog {
+            position: relative;
+            left: 35px;
+            top: 3px;
+        }
+         .se-block .block-content .se-container .se-links-container .se-links .se-link img {
+            max-height: 25px;
+            width: 25px;
+            margin: 10px 2px;
+        }
+        .links-blog a.mail:before {
+            font-size: 15px;
+            padding: 6px 6px !important;
+        }
+        .links-blog a.print:after {
+            font-size: 15px;
+            left: 186px;
+            padding: 6px 8px !important;
+        }
+        .blog-content h2{
+            font-size: 24px;
+        }
+    } 
+</style>

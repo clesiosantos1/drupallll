@@ -1,0 +1,77 @@
+{#
+/**
+* @file
+* Default theme implementation to display a menu.
+*
+* Available variables:
+* - menu_name: The machine name of the menu.
+* - items: A nested list of menu items. Each menu item contains:
+*   - attributes: HTML attributes for the menu item.
+*   - below: The menu item child items.
+*   - title: The menu link title.
+*   - url: The menu link url, instance of \Drupal\Core\Url
+*   - localized_options: Menu link localized options.
+*   - is_expanded: TRUE if the link has visible children within the current
+*     menu tree.
+*   - is_collapsed: TRUE if the link has children within the current menu tree
+*     that are not currently visible.
+*   - in_active_trail: TRUE if the link is in the active trail.
+*
+* @ingroup templates
+*/
+#}
+{% import _self as menus %}
+
+{#
+ We call a macro which calls itself to render the full tree.
+ @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+     <div class="collapse navbar-collapse " id="navbarCollapse">
+
+        <ul class="navbar-nav main-navbar">
+          {% for item in items %}
+            {%
+              set classes = [
+                'nav-link',
+                item.in_active_trail ? 'active',
+              ]
+            %}
+
+            {% if item.below %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+              {{ item.title }}
+              </a>
+              <div class="dropdown-menu">
+                {% for item_below in item.below %}
+                <a class="dropdown-item" href="{{item_below.url}}">{{item_below.title}}</a>
+                {% endfor %}
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a {{ item.attributes.addClass(classes) }} href="{{item.url}}">
+                {{ item.title }}
+              </a>
+            </li>
+            {% endif %}
+
+          {% endfor %}
+          {# <li class="nav-item">
+              <a class="btn btn-contratar" href="/quero-contratar" target="_blank">
+                Quero Contratar
+              </a>
+          </li> #}
+         </ul>
+        {# <div class="navbar-bandera-desktop">
+          <ul class="navbar-nav lang-list">
+          </ul>
+        </div> #}
+    </div>
+  {% endif %}
+{% endmacro %}
+

@@ -1,0 +1,12 @@
+name: Entity Reference Views
+type: module
+description: 'Tests entity reference views module functionality.'
+package: Testing
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - entity_reference_views:entity_reference_views
+
+# Information added by Drupal.org packaging script on 2022-03-08
+version: '1.0.0'
+project: 'entity_reference_views'
+datestamp: 1646756065

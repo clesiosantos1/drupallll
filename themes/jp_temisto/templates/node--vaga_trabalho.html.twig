@@ -1,0 +1,138 @@
+{{content.field_banner_vaga}}
+<!-- Start Blog Detail -->
+<section class="blog-area blog-sidebar-area blog-single-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="blog-single-img">
+                    <img src="{{content.field_imgvagas.0}}" alt="">
+
+                </div>
+                <div class="time-date">
+                    <ul>
+                        <!-- <li><i class="fa fa-user" aria-hidden="true"></i>
+                          {{ node.Owner.name.value }}
+                        </li>
+                        <li><i class="fa fa-calendar" aria-hidden="true"></i>
+                          {{ node.created.value|date("d-m-Y")  }}</li>
+
+                        <li>
+                          <i class="fa fa-comments-o" aria-hidden="true"></i>{{comment_count}} comments</li> -->
+                    </ul>
+                </div>
+                <div class="blog-content">
+                    <h2>{{ node.title.value }}</h2>
+                    {{ content.body }}
+                </div>
+                <div class="blog-content" style="margin-top: 60px">
+                    {# Submit Your Resume #}
+                    <h4 style="color: #5a5a5a">{{'Envie seu Currículo'|trans}}</h4>
+                    <hr>
+                    {{content.field_form}}
+                </div>
+                {{ content.field_vagas_ralacionadas }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Blog Detail -->
+
+
+<style>
+    input#edit-vaga {
+        background-color: #e9ecef;
+        opacity: 1;
+    }
+
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"] {
+        color: #0000029c !important;
+        width: 100%;/* 923px; */
+        height: 50px;
+        border: 1px solid #bfc0c6;
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        font-size: 16px !important;
+        width: 100%; /*923px;*/
+        height: 50px;
+        color: #0000029c !important;
+        border: 1px solid #bfc0c6;
+        padding: 10px;
+    }
+
+    div#edit-actions {
+        margin-left: 15px;
+    }
+
+    div#edit-curriculum-upload label {
+        color: #fff !important;
+        background: #009bcc;
+    }
+
+    .btn {
+        width: 294px;
+    }
+
+    .col-md-12.js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-vaga.form-item-vaga label {
+        display: none;
+    }
+
+    .clearfix.text-formatted.field.field--name-body.field--type-text-with-summary.field--label-hidden.field__item h2 {
+        font-size: 25px;
+    }
+
+    .blog-content h2 {
+        font-size: 30px;
+    }
+
+    .time-date {
+        background: #009bcc !important;
+    }
+
+    form#webform-submission-formulario-candidatura-node-269-add-form {
+        margin-left: -15px;
+    }
+
+    .ui-dialog .ui-dialog-titlebar {
+        background: #fff;
+        border-radius: 0;
+        border-width: 0 0 1px 0;
+        border-color: #ccc;
+    }
+    button.ui-dialog-titlebar-close {
+    border: 2px solid #000 !important;
+}   
+    // Perhaps I broke something
+    .js-form-item.form-item.js-form-type-date label{
+        font-size: 18px;
+    }
+
+    label, .fieldset-legend{
+        font-size: 18px;
+    }
+
+    label.option{
+        font-size: 14px;
+    }
+
+    @media (min-width: 0px) and (max-width: 767.98px) {
+
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"], 
+        input[type="text"] {
+            width: 100%;/*276px;*/
+        }
+
+          input[type="email"]{
+              height: 42px;
+          }
+    }
+    input#edit-vaga {
+    padding: 10px;
+}
+</style>

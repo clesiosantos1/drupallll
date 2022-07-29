@@ -1,0 +1,25 @@
+name: 'JP Temisto'
+description: 'Jupiter Systems & Soluctions Drupal 8 theme.'
+core_version_requirement: ^9
+type: theme
+base theme: classy
+screenshot: jp_temisto.png
+
+regions:
+  header_small: Header Small
+  header: Header
+  logo: Logo
+  primary_menu: Primary menu
+  content: Content
+  footer_col_1: Footer First
+  footer_col_2: Footer Second
+  footer_col_3: Footer Third
+  footer_col_4: Footer Four
+
+libraries:
+  - jp_temisto/global-styling
+
+# Information added by Drupal.org packaging script on 2018-12-26
+version: '8.x-1.0'
+project: 'jp_temisto'
+datestamp: 1545808983

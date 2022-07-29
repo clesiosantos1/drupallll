@@ -1,0 +1,181 @@
+
+<section class="blog-area blog-sidebar-area blog-single-area" style="margin-top:40px;">
+    <div class="container">
+        <div class="row">
+           <div class="col-md-4">
+                {{ content.field_publididades_news}}
+            </div>
+            <div class="col-md-8 mb-5">
+                <div class="blog-single-img">
+                  <iframe width="730" height="460" src="{{content.field_link_video.0['#url']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="time-date px-0 bg-transparent">
+                    {% set trans_month_hash = { 
+                        "January": "Janeiro", 
+                        "February": "Fevereiro", 
+                        "March": "Março", 
+                        "April": "Abril", 
+                        "May": "Maio", 
+                        "June": "Junho", 
+                        "July": "Julho", 
+                        "August": "Agosto", 
+                        "September": "Setembro", 
+                        "October": "Outubro", 
+                        "November": "Novembro", 
+                        "December ": "Dezembro"
+                    } 
+                   %}
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> {{ node.created.value|date("d,") }} {{ trans_month_hash[node.created.value|date("F")] }} {{ node.created.value|date("Y") }}
+                </div>
+                <div class="blog-content">
+                    <h2>{{ node.title.value }}</h2>
+                    <div class="blog-content-desc text-align-justify" style="color: #3d4049;">
+                        {{ content.field_body }}
+                    </div>
+                </div>
+            </div>
+
+         
+             
+        </div>
+    </div>
+    <script>
+        var autor = document.getElementById("autor").innerText.split('.');
+        var nome = autor[0];
+        var sobrenome = autor[1];
+        nome = nome.charAt(0).toUpperCase() + nome.slice(1);
+        sobrenome = sobrenome.charAt(0).toUpperCase() + sobrenome.slice(1);
+        autor = nome + ' ' + sobrenome;
+        document.getElementById("autor").innerText = autor;
+
+    </script>
+</section>
+
+<style>
+ 
+    .blog-single-area .time-date {
+        border-radius: 0;
+        background-color: white !important;
+        margin-top: 15px;
+        color: #3d4049;
+    }
+    .se-block .block-content .se-container .se-links-container {
+        height: 60px;
+        top: -88px;
+        left: 61px;
+        position: relative;
+    }
+    .se-block .block-content .se-container .se-links-container .se-links .se-link img {
+        max-height: 60px;
+        width: 40px;
+        border-radius: 100%;
+        margin: 5px;
+    }
+    .block.block-views.block-views-blockblogs-categorias-relacionadas--block-1 h2 {
+        display: none;
+    }
+    .links-blog a {
+        text-decoration: none;
+    }
+    .links-blog {
+        position: relative;
+        left: 58px;
+        top: -23px;
+    }
+    .blog-content p {
+     margin-top: 0px;
+}
+    .blog-content h2 {
+        margin-top: -23px;
+        color: #1d98c4;
+        font-weight: bold;
+        font-size: 30px;
+        letter-spacing: -1px;
+    }
+ 
+    p.share-partilhe {
+        font-size: 16px !important;
+        font-weight: 500;
+    }
+    .blog-content-desc p {
+        color: #3d4049;
+        font-size: 14px;
+    }
+    .links-blog a.mail:before {
+        content: "\f0e0";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        font-size: 21px;
+        height: 40px;
+        left: 182px;
+        top: -138px;
+        position: relative;
+        color: #fff;
+        background: #706e6e;
+        line-height: 1.6;
+        padding: 9px 9px !important;
+        border-radius: 46%;
+    }
+    .links-blog	a.print:after {
+        
+        content: "\f02f";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        font-size: 23px;
+        height: 37px;
+        left: 191px;
+        top: -138px;
+        position: relative;
+        color: #fff;
+        background: #706e6e;
+        line-height: 1.6;
+        padding: 9px 10px !important;
+        border-radius: 46%;
+        }
+    .page-title:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "";
+        opacity: 0.5;
+        z-index: -1;
+        background: #000;
+    }
+    img.img-siga-nos {
+        max-width: 294px;
+        margin-top: 40px;
+        margin-left: 6px;
+    }
+
+    @media (max-width:767.99px){
+       .links-blog {
+            position: relative;
+            left: 24px;
+            top: -20px;
+        }
+         .se-block .block-content .se-container .se-links-container .se-links .se-link img {
+            max-height: 25px;
+            width: 25px;
+            margin: 10px 2px;
+        }
+        .links-blog a.mail:before {
+            font-size: 15px;
+            padding: 6px 6px !important;
+        }
+        .links-blog a.print:after {
+            font-size: 15px;
+            left: 186px;
+            padding: 6px 8px !important;
+        }
+        .blog-content h2{
+            font-size: 24px;
+        }
+     
+    } 
+</style>

@@ -1,0 +1,936 @@
+<div class="main-menu-area" id="main-menu">
+	<div class="search-block-form contextual-region block block-search container-inline"
+		data-drupal-selector="search-block-form" id="block-bartik-search" role="search">
+		<div class="content container-inline">
+			<form action="/pesquisar" method="get" id="search-block-form" accept-charset="UTF-8"
+				class="search-form search-block-form" data-drupal-form-fields="edit-keys">
+				<div
+					class="js-form-item form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label">
+					<div class="search_box">
+					<input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys"
+						type="search" id="edit-keys" name="filter" value="" size="13" maxlength="128"
+						class="form-search" placeholder="{{'O que procura?' | trans}}">
+						<button type="submit" class="enviar ">BUSCAR</button>
+					</div>
+						<span class="d-flex justify-content-end text-white">Insira os termos que voce deseja pesquisar.</span>
+				</div>
+				<span class="btn-search">
+					<i class="fa fa-times-circle"></i>
+				</span>
+			</form>
+		</div>
+	</div>
+
+	<div class="container-fluid fundo-header">
+		<div class="row header-info">
+			<div class="col-md-4 pt-1 phone">
+				<img class="icones-header" src="/themes/jp_temisto/assets/phone-branco.png">
+				<span class="info-contacto"> Telefones: (+244) 222 011 009 | 918 84 81 50 | 932 34 66 48</span>
+			</div>
+			<div class="col-md-4 pt-1 email text-center">
+				<img class="icones-header" src="/themes/jp_temisto/assets/mail-branco.png">
+				<span class="info-contacto"> Email:<span class="pl-2">apoiocliente@mundial.co.ao</span></span>
+			</div>
+
+			<div class="barra-social col-md-3">
+				<div class="icones text-right">
+					<a href="https://www.facebook.com/amuseseguros" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/amundialseguros" target="_blank"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.instagram.com/amundialseguros" target="_blank"><i
+							class="fa fa-instagram"></i></a>
+				    <a href="https://www.linkedin.com/company/a-mundial-seguros/" target="_blank"><i class="fa fa-linkedin"></i></a> 
+				    <a href="https://www.youtube.com/channel/UClDKhYKFeBzNkuNmjA00Qng" target="_blank"><i class="fa fa-youtube"></i></a> 
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-header">
+		<nav class="navbar text-right navbar-expand-lg navbar-white site-navigation navbar-togglable">
+			<a href="/pt-pt">
+				<img class="logo-principal float-left" width="210px" height="55px;"
+					src="/themes/jp_temisto/assets/academia.png">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+				aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span>
+			</button>
+			{{page.primary_menu}}
+		</nav>
+	</div>
+</div>
+
+<!-- End NavBar -->
+
+{% set url = url('<current>') %}
+	{% if 'user' in url|render|render %}
+	<section class="section page-title bg-fixed bg-cover" style="background-image: url({{banner_image}});">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-6">
+					<div class="service-banner">
+						<h1>{{page['#title']}}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{{page.content}}
+
+	<footer class="footer">
+
+		<div class="footer-section pt-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 m-15 px-tb col-sm-12">
+						<div class="footer-content">
+							{{page.footer_col_4}}
+							<div class="fot-contacte-nos">
+								<h5 class="foot-1">CONTACTE-NOS</h5>
+
+								<div class="local-endereco">
+									<div><span class="localy">Morada : </span>Av. Samora Machel. LOTE CS5B - (Talatona -
+										Luanda)
+									</div>
+									<div><span class="localy">Telefone :</span> (+244) 222 011 009 | 946 441 973</div>
+									<div><span class="localy">E-mail :</span> apoiocliente@mundial.co.ao</div>
+									<div><span class="localy">Segunda - Sexta :</span> 8:00 - 17:00</div>
+									<div><span class="localy">Sábado - Domingo :</span> Fechado</div>
+								</div>
+
+
+								<h5 class="assine">ASSINE NOSSA NEWSLETTER </h5>
+
+								<p class="paragrafo-assine">Não enviaremos spam, nem repassaremos seu endereço de email
+									a terceiros.
+									Enviaremos apenas
+									actualizações jurídicas. A qualquer momento você poderá se descadastrar.</p>
+
+				{# 				{{ drupal_entity('webform', 'subscription') }} #}
+
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 m-15 px-tb col-md-6 col-sm-12">
+						<div class="footer-content d-flex">
+							<div class="menu1">{{page.footer_col_3}}</div>
+						</div>
+					</div>
+					<div class="col-lg-3 m-15px-tb col-md-8">
+						<div class="footer-content d-flex">
+							<div  class="menu2">{{page.footer_col_2}}</div>
+						</div>
+			
+
+					</div>
+					<div class="col-lg-2 m-15 px-tb col-md-3 col-sm-12 logo-footer">
+						<div class="footer-content">
+							<div class="menu3">	{{page.footer_col_1}}
+							<div class="footer-social">
+								<h1 class="seguir">SIGA NOSSAS REDES SOCIAIS </h1>
+								<ul>
+									<li><a href="https://www.facebook.com/amuseseguros" target="_blank"><i
+												class="fa fa-facebook"></i></a></li>
+									<li><a href="https://instagram.com/amundialseguros?igshid=1tel197g7t600"
+											target="_blank"><i class="fa fa-instagram"></i></a></li>
+									<li><a href="https://twitter.com/amundialseguros" target="_blank"><i
+												class="fa fa-twitter"></i></a></li>
+									<li><a href="https://www.linkedin.com/company/a-mundial-seguros/"><i class="fa fa-linkedin"></i></a></li>
+									<li><a href="https://www.youtube.com/channel/UClDKhYKFeBzNkuNmjA00Qng"><i class="fa fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="copyright-text pb-0">
+						<p class="copyright"> © 2022 |<a href="/pt-pt" class="mundiseg"> Mundial Seguros
+							</a>|
+							Todos direitos Reservados.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	<style>
+		.barra-social {
+			background: #00455b;
+			color: #fff;
+			display: flex;
+			justify-content: flex-end;
+			padding-right: 0px;
+			height: 50px;
+			margin-top: 2px;
+		}
+
+		.barra-social i.fa {
+			border: 1px solid #fff;
+			border-radius: 100%;
+			padding: 7px;
+			padding-right: 8px;
+			margin: 10px 2px 10px 0;
+			width: 30px;
+			height: 30px;
+			line-height: 1.1;
+		}
+
+		.search_box {
+			display: flex !important;
+			justify-content: space-between;
+		}
+		.icones.text-right a {
+			color: #fff;
+		}
+
+		.header-info {
+			margin-right: -15px;
+		}
+
+		a.letras-ask.mt-4 {
+			text-decoration: none;
+			position: relative;
+			top: 4px;
+		}
+
+
+		.icones-header {
+			width: 23px;
+			height: 23px;
+			margin: 10px;
+		}
+
+		a.letras-ask.mt-4:hover {
+			color: #00455b;
+		}
+
+		span.info-contacto {
+			color: #fff;
+		}
+
+		.formSuimuladorPrivacidedosDados legend {
+			line-height: 0.5 !important;
+		}
+
+		a.info-contacto {
+			color: #00455b;
+			text-decoration: none;
+		}
+
+		.letras-ask {
+			color: #00455b;
+			font-weight: 600;
+			line-height: 1;
+			font-size: 13px;
+		}
+
+		.ajuda {
+			max-width: 12.666667%;
+			text-align: center;
+		}
+
+		i.fa {
+			border: 1px solid #fff;
+			border-radius: 46%;
+			padding: 5px;
+			margin: 5px;
+		}
+
+		.fa-twitter:before {
+			content: "\f099";
+			margin-top: 9px;
+			padding-top: 22px;
+		}
+
+		.fa-facebook-f:before,
+		.fa-facebook:before {
+			content: "\f09a";
+			padding-right: 2px;
+
+		}
+
+		.logo-principal {
+			height: 96px;
+			width: 135px;
+			margin-left: 15px;
+			margin-bottom: 14px;
+			margin-top: -2px;
+		}
+		.fundo-header {
+			background: #00455b;
+		}
+
+		h5.foot-1 {
+			color: #fff;
+			font-weight: 500;
+			font-size: 18px;
+			margin-bottom: 22px;
+			margin-top: 62px;
+		}
+
+		h5.assine {
+			margin-top: 50px;
+			color: #fff;
+			font-size: 16px;
+			font-weight: 500;
+		}
+
+		p.paragrafo-assine {
+			color: #fff9 !important;
+			font-size: 10px !important;
+			justify-items: left;
+			line-height: 2;
+			margin-top: 22px;
+			font-weight: normal;
+		}
+
+		.local-endereco {
+			font-size: 10px;
+			line-height: 26px;
+			color: #fff9;
+		}
+
+		span.localy {
+			color: #009bcc;
+			font-weight: 500;
+		}
+
+		.region-footer-col-2 nav ul li a,
+		.region-footer-col-3 nav ul li a {
+			font-size: 9.8pt !important;
+		}
+
+		ul.menu {
+			margin-top: -24px;
+
+		}
+
+		.region-footer-col-3 nav h2 {
+			display: block;
+			font-size: 18px !important;
+			font-weight: 500;
+		}
+
+		h2#block-produtos-menu {
+			margin-top: 32px;
+			font-size: 18px !important;
+			font-weight: 500;
+		}
+
+		h2#block-restrito-menu {
+			font-size: 18px !important;
+			margin-top: 62px;
+			font-weight: 500;
+			margin-left: 11px;
+		}
+
+		h2#block-exploreosite-menu {
+			font-size: 18px !important;
+			margin-top: 32px;
+			font-weight: 500;
+			margin-left: -2px;
+		}
+
+		.menu-item {
+			width: 200px;
+			font-weight: 400;
+		}
+
+		li.menu-item a.is-active {
+			border: none;
+		}
+
+		h2#block-restrito-menu a.is-active {
+			color: #9a9b9d !important;
+			font-size: 9.8pt !important;
+		}
+
+		.footer-content li a {
+			color: #9a9b9d !important;
+			font-size: 13px !important;
+			text-transform: capitalize !important;
+		}
+
+		a.mundiseg {
+			text-decoration: none;
+			color: #009acb;
+		}
+
+		.col-md-4.pt-1.email {
+			padding-top: 6px !important;
+			padding: 0px;
+		}
+
+		.col-md-4.pt-1.phone {
+			padding-top: 6px !important;
+			padding: 0px;
+			margin-left: 38px;
+		}
+
+		h1.seguir {
+			margin-top: 123px;
+			font-size: 16px;
+			color: #fff;
+			font-weight: 500;
+			margin-left: 10px;
+			width: 292px;
+		}
+
+		.baixe {
+			font-size: 16px;
+			font-weight: 500;
+			color: #fff;
+			margin-top: 16px;
+		}
+
+		p.copyright {
+			margin-top: 85px;
+			font-size: 14px !important;
+			font-weight: 500;
+			color: #9a9b9d !important;
+			margin-left: 12px;
+		}
+
+		footer {
+			font-size: 16px;
+		}
+
+		.footer-social ul li a i {
+			width: 30px;
+			height: 30px;
+			line-height: 1.1;
+			color: #fff;
+			border: 2px solid #fff;
+			margin: -4px;
+			margin-top: 18px;
+			font-size: 18px;
+			padding: 4px;
+			text-align: center;
+			-webkit-transition: 400ms;
+			-moz-transition: 400ms;
+			-o-transition: 400ms;
+			transition: 400ms;
+		}
+
+		.footer-social {
+			margin-left: 2px;
+		}
+
+		.footer-social ul {
+			list-style: none;
+			margin: -18px;
+			padding: 0;
+			margin-left: 55px;
+			width: 288px;
+		}
+
+		img.icones-app-store {
+			width: 180px;
+			margin-left: 3px;
+		}
+
+		.icones-google-play {
+			width: 184px;
+			margin-top: 10px;
+		}
+
+		.col-lg-3.m-15px-tb.col-md-8 {
+			margin-top: 0px;
+		}
+
+		ul li i.fa {
+			font-size: 22px;
+		}
+
+		span.mundiseg {
+			color: #009bcc;
+		}
+
+		.form-outline input#email {
+			border-radius: 4px;
+			height: 40px !important;
+			font-size: 13px !important;
+			width: 175px;
+		}
+
+		button.botao-enviar {
+			height: 40px;
+			width: 85px;
+			margin-top: -30px;
+			border: none;
+			border-radius: 3px;
+			color: #fff;
+			background: #009acb;
+			margin-left: -11px;
+		}
+		.js-form-item.form-item.js-form-type-search.form-type-search.js-form-item-keys.form-item-keys.form-no-label {
+			width: 100%;
+		}
+	
+		button.enviar{
+			width: 111px;
+			margin-top: 8px;
+			height: 46px;
+			border-radius: 3px 37px 33px 1px;
+			background-color: #023140 !important;
+			border: none;
+		}
+		button.enviar:focus{
+			outline:none;
+		}
+		button.enviar:hover {
+			color: #fff;
+			font-weight: 500px !important;
+		}
+		span.d-flex.justify-content-end.text-white {
+			margin-right: 107px;
+			margin-top: 9px;
+			font-weight: lighter;
+			font-size: 12px;
+		}
+
+		.single-item.col-3 :active :hover {
+			background-color: #009bcc;
+		}
+
+		.navbar-white .navbar-nav .nav-link:hover {
+			color: #00455b !important;
+			font-weight: 500;
+		}
+
+		@media(min-width:0px) and (max-width: 767.99px) {
+			.barra-social {
+				display: none;
+			}
+			.footer-social {
+				margin-top: -6rem;
+			}
+			.footer-social ul{
+				margin-left: auto;
+			}
+			.col-lg-4.col-md-6.m-15.px-tb.col-sm-12{
+				margin-top: -3rem;
+			}
+			.header-info {
+				display: none;
+			}
+			.icones.text-center {
+				margin-left: 50px;
+			}
+
+			span.localy {
+				font-size: 15px;
+			}
+
+			footer.footer {
+				padding: 5px;
+			}
+
+			.local-endereco {
+				font-size: 15px;
+				font-weight: 500;
+			}
+
+			.letras-ask {
+				margin: 3px;
+			}
+
+			.icones-header-ask {
+				margin-left: -169px;
+				margin-top: 0px;
+			}
+			nav#block-restrito ul {
+				margin-left: 0rem;
+			}
+			h2#block-produtos-menu {
+				font-size: 18px !important;
+				margin-left: -4px;
+			}
+
+			.ajuda {
+				max-width: 100.666667%;
+				height: 44px;
+				padding: 5px;
+				text-align: center;
+			}
+			.single-item.col-md-3 {
+
+				max-width: 300px;
+			}
+
+			input[type="text"] {
+				font-size: 15px !important;
+				height: 42px !important;
+			}
+
+			.footer-section {
+				padding: 0px;
+			}
+
+			.region-footer-col-2 nav ul li a,
+			.region-footer-col-3 nav ul li a {
+				font-size: 11.8pt !important;
+			}
+
+			p.paragrafo-assine {
+				font-size: 15px !important;
+			}
+
+			h2#block-restrito-menu {
+				margin-top: -0.4rem;
+				margin-left: -10px;
+			}
+
+			h2#block-exploreosite-menu {
+				margin-left: -2px;
+			}
+
+			h5.assine {
+				font-size: 18px;
+			}
+
+			h1.seguir {
+				font-size: 16px;
+				color: #fff;
+				font-weight: 500;
+				width: 250px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 250px;
+			}
+
+			.baixe {
+				font-size: 18px;
+			}
+
+			p.copyright {
+				margin-top: 28px;
+				font-size: 16px !important;
+			}
+			.footer-content li a {
+				font-size: 16px !important;
+			}
+		}
+
+		@media (min-width: 768px) and (max-width: 1024px) {
+			h2#block-restrito-menu {
+				margin-left: -40px;
+			}
+			nav#block-restrito ul {
+				margin-left: -40px;
+			}
+			span.info-contacto.mt-2 {
+				font-size: 13px !important;
+			}
+
+			.region-footer-col-3 {
+				margin-left: 60px !important;
+			}
+
+			.col-md-3 nav ul li a {
+				font-size: 10.8pt !important;
+			}
+
+
+			i.fa.fa-search.pr-1 {
+				margin-left: 44rem !important;
+			}
+
+			.barra-social {
+				display: none;
+			}
+
+			.header-info {
+				display: none;
+			}
+
+			.region.region-footer-col-1 {
+				margin-left: -26px;
+				margin-top: -15rem !important;
+			}
+
+			h1.seguir {
+				font-size: 16px;
+				margin-left: -59px;
+				width: 300px;
+			}
+
+			.region-footer-col-2 nav ul,
+			.region-footer-col-3 nav ul {
+				margin-left: -2px;
+			}
+
+			.footer-social ul {
+				margin-left: -28px;
+				width: 300px;
+			}
+
+			p.copyright {
+				font-size: 18px !important;
+			}
+
+			h5.assine {
+				width: 300px;
+			}
+
+			.site-navigation .navbar-toggler {
+				margin-top: -58px !important;
+				margin-right: 40px !important;
+			}
+
+			p.paragrafo-assine {
+				font-size: 12px !important;
+			}
+
+			input[type="text"] {
+				height: 42px !important;
+			}
+
+			button.botao-enviar {
+				margin-top: -100px !important;
+				margin-left: 142px !important;
+			}
+
+			.footer-section {
+				padding: 40px;
+			}
+
+			ul.menu {
+				margin-left: -26px;
+			}
+
+			.logo-principal {
+				margin-bottom: 14px;
+			}
+		}
+
+
+		@media(min-width:1025px) and (max-width:1366px) {
+			span.info-contacto {
+				font-size: 11px;
+			}
+		
+			.owl-carousel .owl-item {
+				margin-right: 0px !important;
+			}
+
+			h1.field_texto_store {
+				font-size: 35px;
+			}
+
+			#block-restrito ul.menu {
+				margin-left: -41px !important;
+			}
+
+			h5.field_subtexto_store {
+				font-size: 20px;
+			}
+
+			.btn-slider a {
+				margin-left: 0px !important;
+			}
+
+			img.icones-app-store {
+				width: 88%;
+			}
+
+			.field_email_:before {
+				top: 45px !important;
+			}
+		}
+
+		@media (min-width: 992px) and (max-width: 1199.98px) {
+			img.icones-app-store {
+				width: 96%;
+			}
+
+			.region-footer-col-2 nav ul li a,
+			.region-footer-col-3 nav ul li a {
+				font-size: 13.8pt !important;
+			}
+
+			.footer-content li a {
+				font-size: 19px !important;
+			}
+
+			h1.seguir {
+				margin-top: 129px;
+				width: 300px;
+				margin-left: 19px;
+			}
+
+			.footer-social ul {
+				width: 300px;
+				margin-left: 42px;
+			}
+
+			.baixe {
+				margin-top: 13px;
+				width: 300px;
+			}
+
+			.fot-contacte-nos {
+				margin-left: -18px;
+			}
+
+			.local-endereco {
+				font-size: 13px;
+				width: 191px !important;
+			}
+
+			p.copyright {
+				font-size: 18px !important;
+			}
+
+		}
+
+		@media (max-width: 1440px) and (min-width: 900px) {
+			button.botao-enviar {
+				margin-top: -100px;
+				margin-left: 152px;
+			}
+		}
+
+		@media (max-width: 1680px) and (min-width: 1050px) {
+			button.botao-enviar {
+				margin-top: -100px;
+				margin-left: 171px;
+			}
+		}
+
+		@media (max-width: 1024px) and (min-width: 640px) {
+			button.botao-enviar {
+				margin-top: -100px;
+				margin-left: 152px;
+			}
+		}
+
+		@media (min-width: 667px) and (max-width: 768px) {
+			.container-fluid.fundo-header {
+				display: none;
+			}
+
+			button.botao-enviar {
+				margin-top: -29px;
+				margin-left: -9px;
+			}
+		}
+
+		@media (min-width: 1024px) and (max-width: 1366px) {
+			i.fa.fa-search.pr-1 {
+				margin-left: -3rem !important;
+			}
+
+			h6.mt-3 {
+				font-size: 22px;
+			}
+
+			.container-principais-noticias {
+				min-height: 0px;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+
+			h4.field_texto_color {
+				margin-left: -80px;
+			}
+
+			.footer-content li a {
+				font-size: 16px !important;
+			}
+
+			.footer-section {
+				padding: 0px;
+			}
+
+			h2#block-restrito-menu {
+				margin-left: -42px;
+				margin-top: 62px;
+			}
+
+			.region-footer-col-2 nav ul li a,
+			.region-footer-col-3 nav ul li a {
+				font-size: 10.8pt !important;
+			}
+
+			.region.region-footer-col-1 {
+				margin-left: 30px;
+				margin-top: 0px !important;
+			}
+
+			.baixe {
+				font-size: 15px;
+			}
+
+			h1.seguir {
+				margin-top: 152px;
+				margin-left: -47px;
+				font-size: 15px;
+				width: 228px;
+			}
+
+			.region-footer-col-3 {
+				margin-left: -3px !important;
+				margin-top: 0px;
+			}
+
+			.footer-social ul {
+				margin-left: -18px;
+				width: 213px;
+			}
+
+			.local-endereco {
+				font-size: 10px;
+				width: 219px !important;
+			}
+
+			h5.assine {
+				margin-top: 35px;
+				font-size: 15px;
+			}
+
+			ul.menu {
+				margin-left: -43px;
+			}
+
+			.middle-column .card-body .blog-box-content .post-title a {
+				font-size: 14px !important;
+			}
+
+			.icones-google-play {
+				width: 163px;
+
+			}
+
+			p.paragrafo-assine {
+				font-weight: 100;
+			}
+
+			img.icones-app-store {
+				width: 162px;
+			}
+		}
+		
+		@media(min-width:280px) and (max-width:1320px){
+			i.fa.fa-search.pr-1 {
+				margin-left: -3rem !important;
+			}
+
+		}
+		@media(min-width:1330px) and (max-width:1358px){
+			i.fa.fa-search.pr-1 {
+				margin-left: -3rem !important;
+			}
+
+		}
+		@media(min-width:497px) and (max-width:1240px){
+			i.fa.fa-search.pr-1 {
+				margin-left: -3rem !important;
+			}
+
+		}
+		
+	</style>
+
+	

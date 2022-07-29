@@ -1,0 +1,16 @@
+<!-- Start Blog page -->
+<Section>
+    <div class="container p-0">
+    <h3 class="tituloss" style="font-size: 24px;font-weight: 700;position: relative;margin-bottom: 10px;letter-spacing: -1px;color: #3d4049;">Últimos Posts</h3>
+    <hr>
+        <div class="row">
+            {% if rows %}
+              {{rows}}
+            {% endif %}
+        </div>
+        {% if pager %}
+          {{ pager }}
+        {% endif %}
+    </div>
+</Section>
+<!-- End Blog page -->

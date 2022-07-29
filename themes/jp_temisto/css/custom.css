@@ -1,0 +1,120 @@
+.navbar-header {
+    background: #1d98c4 !important;
+    height: 70px;
+}
+
+.breadcrumb {
+    background-color: transparent;
+}
+
+.searchInput {
+    width: 300px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 5px
+}
+
+.custom-card-header{
+    height: 60px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+.card.custom {
+    height: 50vh;
+    border-radius: 5px;
+}
+
+.searchInput {
+    position: relative;
+}
+.searchInput::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "Olá";
+    width: 50;
+    height: 50;
+    background-color: #000
+}
+
+.text-active{
+    color:#1d98c4
+}
+
+.notify-circle{
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    width: 40px;
+    height: 40px;
+}
+
+.box-border-top{
+    /* box-shadow: 0 -2px 1px #DB0D18; */
+    border-top: 3px solid #1d98c4;
+}
+
+.sticky-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sidebar-nav ul li a{
+    font-size:  1.1rem;
+    color: #000;
+    font-weight: bold;
+}
+
+.header .profile-pic {
+    width: 40px;
+}
+
+
+.header .top-navbar .navbar-nav > .nav-item.show {
+    background: transparent;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color:#1d98c4 !important;
+}
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a:hover i {
+    color: #FFF;
+}
+
+.custom-badge{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    background-color: #1d98c4!important;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    font-weight: bold;
+    font-size: .5em;
+  }
+
+  .drop-arrow::after{
+      position: absolute;
+      top: -30px;
+      right: 15px;
+      content:'';
+      width: 0;
+      height: 0;
+      border-width: 15px;
+      border-style: solid;
+      border-color: transparent transparent #FFF transparent;
+  }
+
+  .drop-arrow::before{
+    position: absolute;
+    top: -31px;
+    right: 15px;
+    content:'';
+    width: 0;
+    height: 0;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, .2) transparent;
+}
+

@@ -1,0 +1,280 @@
+<!-- Start Blog page -->
+<section class="blog-area">
+  <div class="container">
+
+    <div class="titulu text-center mt-5 pt-3 w-100">
+      <h2 class="title font-weight-bold text-left">
+      </h2>
+    </div>
+    <div class="row">
+
+      {% if rows %}
+      {{rows}}
+      {% endif %}
+
+    </div>
+    {% if pager %}
+    {{ pager }}
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .blog-box-content p {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .pagination li a.active {
+    color: #fff;
+    background-color: #009ACB !important;
+    border: 1px solid #009ACB !important;
+  }
+
+  .first-column .card-body {
+    height: 370px;
+  }
+
+  /* Primeiro grupo */
+  .first-column .card-body .blog-box-content {
+    position: absolute;
+    background: #dedede !important;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    margin-top: -60px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 190px;
+  }
+
+  .middle-column .card-body .blog-box-content .post-title a:hover {
+    color: #009acb;
+  }
+
+  .first-column .card-body .blog-box-content .post-title a:hover {
+    color: #009acb;
+  }
+
+  .first-column .card-body .blog-box-content .post-title {
+    position: relative;
+    margin-right: auto;
+    padding: 0 15px;
+    top: 17px;
+  }
+
+
+  .first-column .card-body .blog-box-content .post-title a {
+    font-size: 20px !important;
+    letter-spacing: -1px;
+    line-height: 24px;
+    font-weight: bold;
+    margin: 0 0 5px;
+    display: block;
+  }
+
+  .first-column .card-body .blog-box-content .post-bar {
+    text-align: center !important;
+    background-color: #009acb;
+    color: white;
+    width: fit-content;
+    padding: 0 30px;
+    position: absolute;
+    margin-top: -20px;
+  }
+
+  .first-column .card-body .blog-box-content .post-description {
+    padding: 0 15px;
+    line-height: 1.2;
+    margin-top: 80px;
+    position: absolute;
+  }
+
+  /* Segundo Grupo */
+  .middle-column .card-body {
+    height: 370px;
+  }
+
+  .middle-column .card-body .blog-box-content {
+    position: absolute;
+    background: #dedede !important;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    margin-top: -60px;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    height: 190px;
+  }
+
+  .middle-column .card-body .blog-box-content .post-title {
+    position: relative;
+    margin-right: auto;
+    padding: 0 15px;
+    top: 17px;
+  }
+
+  .middle-column .card-body .blog-box-content .post-title a {
+    font-size: 16px !important;
+    letter-spacing: -1px;
+    line-height: 24px;
+    font-weight: bold;
+    display: block;
+    margin: 0 0 5px;
+  }
+
+  .middle-column .card-body .blog-box-content .post-bar {
+    text-align: center !important;
+    background-color: #009acb;
+    color: white;
+    width: fit-content;
+    padding: 0 30px;
+    position: absolute;
+    margin-top: -30px;
+  }
+
+  .middle-column .card-body .blog-box-content .post-description {
+    padding: 0 15px;
+    line-height: 1.2;
+    margin-top: 80px;
+    position: absolute;
+  }
+
+  /* Terceiro Grupo */
+  .last-column .card-body .post-img {
+    display: none;
+  }
+
+  .last-column .card-body {
+    height: 152px;
+  }
+
+  .last-column .card-body .blog-box-content {
+    position: absolute;
+    background: #dedede !important;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    height: 170px;
+  }
+
+  .last-column .card-body .blog-box-content .post-title {
+    position: relative;
+    margin-right: auto;
+    padding: 0 15px;
+    top: 24px;
+  }
+
+  .last-column .card-body .blog-box-content .post-title a {
+    font-size: 20px !important;
+    letter-spacing: -1px;
+    line-height: 24px;
+    font-weight: bold;
+    margin: 0 0 5px;
+  }
+
+  .last-column .card-body .blog-box-content .post-bar {
+    text-align: center !important;
+    background-color: #009acb;
+    color: white;
+    width: fit-content;
+    padding: 0 30px;
+    position: absolute;
+    margin-top: -5px;
+  }
+
+  .last-column .card-body .blog-box-content .post-description {
+    padding: 0 15px;
+    line-height: 1.2;
+    margin-top: 80px;
+    position: absolute;
+  }
+
+  @media (max-width: 768px) {
+    .first-column .card-body .blog-box-content .post-title a {
+      line-height: 1;
+    }
+
+    .blog-area {
+      padding: 20px 0px 40px 0;
+    }
+
+    section.blog-area {
+      margin-top: -67px !important;
+    }
+  }
+
+  @media (max-width: 1440px) and (min-width: 900px) {
+
+    .first-column .card-body .blog-box-content .post-bar {
+      width: initial;
+    }
+
+    .middle-column .card-body .blog-box-content .post-bar {
+      width: initial;
+    }
+  }
+
+  @media (max-width: 1680px) and (min-width: 1050px) {
+
+    .first-column .card-body .blog-box-content .post-bar {
+      width: initial;
+    }
+
+    .middle-column .card-body .blog-box-content .post-bar {
+      width: initial;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 768px) {
+
+    .first-column .card-body .blog-box-content .post-bar {
+      width: initial;
+    }
+
+    .middle-column .card-body .blog-box-content .post-bar {
+      width: initial;
+    }
+  }
+</style>
+<!-- End Blog page -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script>
+  $(function () {
+
+    var cardnews = document.querySelectorAll(".card.col-sm-12.col-lg-4.card-news");
+    var i = 1;
+  
+      if (i == 1) {
+        cont.className = "card col-sm-12 col-lg-4 card-news first-column";
+      }
+      else if (i == 2) {
+        cont.className = "card col-sm-12 col-lg-4 card-news middle-column";
+      }
+      else if (i == 3) {
+        cont.className = "card col-sm-12 col-lg-4 card-news middle-column";
+      }
+      else if (i == 4) {
+        cont.className = "card col-sm-12 col-lg-4 card-news middle-column";
+      }
+      else if (i == 5) {
+        cont.className = "card col-sm-12 col-lg-4 card-news middle-column";
+      }
+      i++;
+    });
+
+    if ($(".last-column")[0]) {
+      $(".last-column").wrapAll("<div class='col-md-4'><div class='row'></div></div>");
+    }
+
+  });
+
+
+
+</script> -->

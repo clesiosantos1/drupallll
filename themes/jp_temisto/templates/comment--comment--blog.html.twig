@@ -1,0 +1,12 @@
+{# {% set createdDate = created|date('Y-m-d') %}
+{% set createdTime = created|date('H:i:s') %}
+ #}
+  <div class="comment-item">
+      {{user_picture}}
+      <h5>{{ author }}</h5>
+      <span>{# <time class="timeago" datetime="{{createdDate}}T{{createdTime}}z"> #}
+      	{{created}}</time>
+	  </span>
+      {{ content.comment_body['#object'].getAuthorEmail() }}
+      {{content}}
+  </div>

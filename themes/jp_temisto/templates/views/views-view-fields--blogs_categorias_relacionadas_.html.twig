@@ -1,0 +1,38 @@
+<div class="card card-related-news" style="padding: 0 20px 20px 20px; border: none;">
+    <div class="card-body" style="padding: 0px;display: flex;">
+        <div class="post-img pull-left">
+            <a href="{{fields.view_node.content}}">
+                {{fields.field_image.content}}
+            </a>
+        </div>
+        <div class="blog-box-content text-center">
+            <h5 class="post-title">
+                <a href="{{fields.view_node.content}}">
+                    {{fields.title.content}}
+                    
+                </a>
+                <div style="font-size: 12px;margin-top: 7px;">{{fields.created.content}}</div>
+            </h5>
+        </div>
+    </div>
+
+</div>
+
+<style>
+.card-related-news .post-img img {
+    width: 95px;
+    height: 80px;
+}
+.card-related-news .blog-box-content, .card-body {
+    padding: 0 10px;
+}
+.blog-box-content .post-title {
+    margin-top: -5px;
+    text-align: left;
+}
+.post-title a {
+    font-size: 14px;
+    color: #424242;
+    transition: all 300ms linear 0ms;
+}
+</style>

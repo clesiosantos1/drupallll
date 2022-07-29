@@ -1,0 +1,14 @@
+[core]
+  autocrlf = false
+  safecrlf = false
+  ignorecase = false
+  excludesfile = ~/.gitignore
+[branch]
+  autosetuprebase = always
+[color]
+  ui = true
+[diff]
+  renames = copies
+[alias]
+  a = apply --index
+

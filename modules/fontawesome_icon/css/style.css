@@ -1,0 +1,224 @@
+@font-face {
+  font-family: 'hind-siliguri-regular';
+  src: url('../fonts/hind-siliguri/hind-siliguri-regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/hind-siliguri/hind-siliguri-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/hind-siliguri/hind-siliguri-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/hind-siliguri/hind-siliguri-regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/hind-siliguri/hind-siliguri-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/hind-siliguri/hind-siliguri-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.icons-wrapper {
+  position: relative;
+}
+
+.icons {
+  width: 440px;
+  height: 456px;
+  margin-top: 30px;
+  overflow: hidden;
+  position: absolute;
+  top: -30px;
+  left: 0;
+}
+
+.icons-wrapper div.page {
+  opacity: 0;
+  transition: opacity ease-in-out .6s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.icons-wrapper div.page.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.pagination-items {
+  position: absolute;
+  top: 464px;
+  left: 43px;
+  transition: top ease-in-out .5s;
+}
+
+.icons-wrapper .pager {
+  position: absolute;
+  top: 0;
+  left: 108px;
+  overflow: hidden;
+  width: 134px;
+  height: 30px;
+  transition: width ease-in-out .6s, left ease-in-out .6s;
+}
+
+.icons-wrapper ul.pagination {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -13px;
+  width: 200000px;
+  transition: left ease-in-out .6s;
+}
+
+.icons-wrapper ul.pagination li {
+  display: inline;
+  position: relative;
+}
+
+.icons-wrapper ul.pagination li a {
+  text-decoration: none;
+  padding: 0 11px;
+  font-size: 16px;
+}
+
+.icons-wrapper a.fa-icon {
+  width: 110px;
+  height: 110px;
+  display: inline-block;
+  position: relative;
+}
+
+.icons-wrapper a.fa-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icons-wrapper a.prev,
+.icons-wrapper a.next {
+  margin: 0;
+}
+
+.icons-wrapper a.prev {
+  position: absolute;
+  top: 0;
+  left: 14px;
+}
+
+.icons-wrapper a.next {
+  position: absolute;
+  top: 0;
+  left: 234px;
+}
+
+.icons-wrapper a.angle-double-left,
+.icons-wrapper a.prev,
+.icons-wrapper a.next,
+.icons-wrapper a.angle-double-right {
+  position: absolute;
+  transition: left ease-in-out .6s;
+}
+
+.icons-wrapper a.prev,
+.icons-wrapper a.next {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+}
+
+.icons-wrapper a.angle-double-left {
+  left: 24px;
+}
+
+.icons-wrapper a.prev {
+  left: 59px;
+}
+
+.icons-wrapper a.next {
+  left: 263px;
+}
+
+.icons-wrapper a.angle-double-right {
+  left: 313px;
+}
+
+.icons-wrapper ul.pagination li a.go-to-page {
+  position: relative;
+}
+
+.icons-wrapper a.go-to-page[disabled="disabled"] {
+  color: #57788a;
+  cursor: not-allowed;
+}
+
+.icons-wrapper ul.pagination li.active a.go-to-page:before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  border: solid 1px #0678be;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icons-wrapper ul.pagination li.active a {
+  margin-left: 11px;
+}
+
+.icons-wrapper i:before {
+  font-size: 25px;
+}
+
+table .form-item.icons-active {
+  position: relative;
+  padding-bottom: 525px;
+}
+
+table .form-item.autocomplete-active {
+  position: relative;
+  padding-bottom: 515px;
+}
+
+.autocomplete-wrapper {
+  background-color: #ffffff;
+  border: solid 1px #d1d1d1;
+  padding: 4px 13px;
+  height: 538px;
+  width: 100%;
+  overflow: scroll;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  z-index: 2;
+}
+
+.autocomplete-wrapper ul.autocomplete-items {
+  margin: 0;
+  padding: 0;
+}
+
+.autocomplete-wrapper ul.autocomplete-items li {
+  list-style: none;
+}
+
+.autocomplete-wrapper ul.autocomplete-items li a {
+  text-decoration: none;
+}
+
+.autocomplete-wrapper ul.autocomplete-items li a i {
+  margin-right: 10px;
+}
+
+input[size="10000"] + .description > a {
+  text-decoration: none;
+}
+
+input[size="10000"] + .description > a:focus {
+  color: #0000aa;
+}
+
+.autocomplete-wrapper a.fa-icon,
+.autocomplete-wrapper a.go-to-page,
+.icons-wrapper a.go-to-page {
+  font-family: 'hind-siliguri-regular';
+}
+
+.autocomplete-wrapper .fa-icon {
+  font-size: 16px;
+}

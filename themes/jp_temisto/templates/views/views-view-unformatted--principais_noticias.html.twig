@@ -1,0 +1,10 @@
+{% for row in rows|slice(0,1) %}
+	<div class="carousel-item col-md-4 active">
+		{{ row.content }}
+	</div>
+{% endfor %}
+{% for row in rows|slice(1,7) %}
+	<div class="carousel-item col-md-4">
+		{{ row.content }}
+	</div>
+{% endfor %}
